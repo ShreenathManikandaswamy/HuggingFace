@@ -56,10 +56,19 @@ public class SpeechToText : MonoBehaviour
         HuggingFaceAPI.AutomaticSpeechRecognition(bytes, response => {
             text.color = Color.white;
             text.text = response;
+            ProcessResponse(response);
         }, error => {
             text.color = Color.red;
             text.text = error;
         });
+    }
+
+    private void ProcessResponse(string response)
+    {
+        if(response.Contains("Hello"))
+        {
+            Debug.Log("Hello to you too");
+        }
     }
 
     private byte[] EncodeAsWAV(float[] samples, int frequency, int channels)

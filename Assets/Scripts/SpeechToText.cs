@@ -14,6 +14,8 @@ public class SpeechToText : MonoBehaviour
     private Button stopButton;
     [SerializeField]
     private TextMeshProUGUI text;
+    [SerializeField]
+    private TextToSpeech textToSpeech;
 
     private AudioClip clip;
     private byte[] bytes;
@@ -67,7 +69,7 @@ public class SpeechToText : MonoBehaviour
     {
         if(response.Contains("Hello"))
         {
-            Debug.Log("Hello to you too");
+            textToSpeech.Talk("Hello im doing great");
         }
     }
 
